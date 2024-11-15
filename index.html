@@ -138,6 +138,7 @@ body, html {
 }
 
 /* 错误信息样式 */
+/* 错误信息样式 */
 .error-message {
     color: #ff6565;
     display: flex;
@@ -151,15 +152,23 @@ body, html {
     margin-bottom: 10px;
 }
 
+#error-message {
+    font-size: 4vw; /* 错误信息字体 */
+    margin-bottom: 15px;
+}
+
 #retry-button {
-    margin-top: 10px;
-    color: #4CAF50;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 3vw;
     cursor: pointer;
-    font-weight: bold;
 }
 
 #retry-button:hover {
-    color: #388E3C;
+    background-color: #388E3C;
 }
 
 /* GitHub 链接样式 */
@@ -304,10 +313,18 @@ body, html {
             document.querySelector('.welcome-message').innerHTML = `
                 <div class="error-message">
                     <div class="error-icon">😕</div>
-                    <p>${message}</p>
+                    <p id="error-message">${message}</p>
+                    <button id="retry-button">重试</button>
                 </div>
             `;
+
+            // 给重试按钮绑定点击事件
+            document.getElementById('retry-button').addEventListener('click', () => {
+                document.getElementById('loading-spinner').style.display = 'block';
+                fetchIpInfo(); // 重新发起请求
+            });
         };
+
 
         const getTimeGreeting = () => {
             const hour = new Date().getHours();
