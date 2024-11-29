@@ -5,212 +5,212 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>欢迎页面</title>
     <style>
+        :root {
+            --tw-bg-opacity: 1; /* 默认透明度为1，可以调整 */
+        }
+
         /* Base Styles */
         * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body, html {
-    height: 100%;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(202, 138, 4, var(--tw-bg-opacity));
+        }
 
-#main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100%;
-    width: 100%;
-    padding: 5px; /* 减少内边距以适应小屏幕 */
-    overflow-y: auto;
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-}
+        #main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            width: 100%;
+            padding: 5px; /* 减少内边距以适应小屏幕 */
+            overflow-y: auto;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+        }
 
-/* 主内容块 */
-.welcome-header {
-    font-size: 5vw; /* 响应式字体大小 */
-    font-weight: bold;
-    color: #ff4c4c;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-    text-align: center; /* 文字居中 */
-}
+        /* 主内容块 */
+        .welcome-header {
+            font-size: 5vw; /* 响应式字体大小 */
+            font-weight: bold;
+            color: #ff4c4c;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            text-align: center; /* 文字居中 */
+        }
 
+        /* 欢迎标题样式 */
+        .welcome-header {
+            font-size: 5vw; /* 响应式字体大小 */
+            font-weight: bold;
+            color: #ff4c4c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
 
-/* 欢迎标题样式 */
-.welcome-header {
-    font-size: 5vw; /* 响应式字体大小 */
-    font-weight: bold;
-    color: #ff4c4c;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-}
+        /* 简介部分 */
+        .intro {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 水平居中每个项 */
+            justify-content: center; /* 垂直居中 */
+            width: 100%;
+            text-align: center; /* 将文本居中 */
+        }
 
-/* 简介部分 */
-.intro {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* 水平居中每个项 */
-    justify-content: center; /* 垂直居中 */
-    width: 100%;
-    text-align: center; /* 将文本居中 */
-}
-.intro .item {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* 水平居中图标和文本 */
-    margin-bottom: 6px;
-    font-size: 4vw; /* 设置响应式字体大小 */
-}
+        .intro .item {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* 水平居中图标和文本 */
+            margin-bottom: 6px;
+            font-size: 4vw; /* 设置响应式字体大小 */
+        }
 
-.intro .icon {
-    margin-right: 8px;
-    font-size: 4vw; /* 图标大小也使用视口单位 */
-}
+        .intro .icon {
+            margin-right: 8px;
+            font-size: 4vw; /* 图标大小也使用视口单位 */
+        }
 
+        .intro .highlight {
+            color: #007bff;
+            font-weight: bold;
+        }
 
-.intro .highlight {
-    color: #007bff;
-    font-weight: bold;
-}
+        .intro a {
+            color: #007bff;
+            text-decoration: none;
+        }
 
-.intro a {
-    color: #007bff;
-    text-decoration: none;
-}
+        .intro a:hover {
+            text-decoration: underline;
+        }
 
-.intro a:hover {
-    text-decoration: underline;
-}
+        /* 欢迎信息部分 */
+        .welcome-message {
+            background-color: #e7f3ff;
+            border: 1px solid #b0d4f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 3.8vw; /* 适应不同视口的字体大小 */
+        }
 
-/* 欢迎信息部分 */
-.welcome-message {
-    background-color: #e7f3ff;
-    border: 1px solid #b0d4f1;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 20px;
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 3.8vw; /* 适应不同视口的字体大小 */
-}
+        .welcome-message p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
 
-.welcome-message p {
-    margin: 8px 0;
-    line-height: 1.5;
-}
+        /* IP地址样式 */
+        .ip-address {
+            filter: blur(5px);
+            transition: filter 0.3s ease;
+        }
 
-/* IP地址样式 */
-.ip-address {
-    filter: blur(5px);
-    transition: filter 0.3s ease;
-}
+        .ip-address:hover {
+            filter: blur(0);
+        }
 
-.ip-address:hover {
-    filter: blur(0);
-}
+        /* 加载旋转动画 */
+        .loading-spinner {
+            width: 8vw;
+            height: 8vw;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid #4CAF50;
+            animation: spin 1s linear infinite;
+            margin-bottom: 10px;
+        }
 
-/* 加载旋转动画 */
-.loading-spinner {
-    width: 8vw;
-    height: 8vw;
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    border-top: 4px solid #4CAF50;
-    animation: spin 1s linear infinite;
-    margin-bottom: 10px;
-}
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+        /* 错误信息样式 */
+        .error-message {
+            color: #ff6565;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-/* 错误信息样式 */
-/* 错误信息样式 */
-.error-message {
-    color: #ff6565;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+        .error-icon {
+            font-size: 6vw; /* 设置为视口单位大小 */
+            margin-bottom: 10px;
+        }
 
-.error-icon {
-    font-size: 6vw; /* 设置为视口单位大小 */
-    margin-bottom: 10px;
-}
+        #error-message {
+            font-size: 4vw; /* 错误信息字体 */
+            margin-bottom: 15px;
+        }
 
-#error-message {
-    font-size: 4vw; /* 错误信息字体 */
-    margin-bottom: 15px;
-}
-#retry-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 3vw;
-    cursor: pointer;
-}
+        #retry-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 3vw;
+            cursor: pointer;
+        }
 
-#retry-button:hover {
-    background-color: #388E3C;
-}
+        #retry-button:hover {
+            background-color: #388E3C;
+        }
 
-/* GitHub 链接样式 */
-.github-link {
-    font-size: 4vw; /* 响应式字体大小 */
-    color: #333;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
+        /* GitHub 链接样式 */
+        .github-link {
+            font-size: 4vw; /* 响应式字体大小 */
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
 
-.github-link img {
-    width: 5vw;
-    height: 5vw;
-    margin-right: 5px;
-}
+        .github-link img {
+            width: 5vw;
+            height: 5vw;
+            margin-right: 5px;
+        }
 
-.github-link:hover {
-    color: #000;
-}
+        .github-link:hover {
+            color: #000;
+        }
 
-/* 适用于超小屏幕的媒体查询 */
-@media (max-width: 400px) {
-    #welcome-info {
-        font-size: 4.5vw;
-        padding: 8px;
-    }
-    .welcome-header {
-        font-size: 5.5vw;
-    }
-    .intro .item {
-        font-size: 6vw;
-    }
-    .welcome-message {
-        font-size: 6vw;
-    }
-
-}
-
-
-
+        /* 适用于超小屏幕的媒体查询 */
+        @media (max-width: 400px) {
+            #welcome-info {
+                font-size: 4.5vw;
+                padding: 8px;
+            }
+            .welcome-header {
+                font-size: 5.5vw;
+            }
+            .intro .item {
+                font-size: 6vw;
+            }
+            .welcome-message {
+                font-size: 6vw;
+            }
+        }
     </style>
 </head>
 <body>
@@ -219,7 +219,7 @@ body, html {
             <div class="welcome-header">
                 <h1>📢</h1> 欢迎来访者！
             </div>
-            <div class="intro" >
+            <div class="intro">
                 <div class="item"><h1 class="icon">👋</h1>Hi，我是 <span class="highlight" id="blogger-name"></span>，欢迎你！</div>
                 <div class="item"><h1 class="icon">❓</h1>如有问题欢迎评论区交流！</div>
                 <div class="item"><h1 class="icon">😡</h1>页面异常？尝试 <strong>Ctrl + F5</strong></div>
