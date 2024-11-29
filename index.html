@@ -1,3 +1,7 @@
++22
+-5
+Original file line number	Original file line	Diff line number	Diff line change
+@@ -1,349 +1,366 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -5,175 +9,227 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>欢迎页面</title>
     <style>
+        /* Base Styles */
         * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body, html {
-            height: 100%;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        #main-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start; /* 从顶部开始对齐 */
-            height: 100%;
-            width: 100%;
-            padding: 20px;
-            overflow-y: auto;
-            scroll-behavior: smooth;
-        }
-        #welcome-info {
-            user-select: none;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 90vw;
-            max-width: 400px;
-            padding: 20px;
-            border-radius: 12px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            outline: 1px solid #dcdcdc;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .welcome-header {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #ff4c4c;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-        .intro {
-            font-size: 1rem;
-            margin-bottom: 15px;
-            text-align: left;
-            line-height: 1.8;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .intro .item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 6px;
-        }
-        .intro .icon {
-            margin-right: 8px;
-            font-size: 1.2rem;
-        }
-        .intro .highlight {
-            color: #007bff;
-            font-weight: bold;
-        }
-        .intro a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .intro a:hover {
-            text-decoration: underline;
-        }
-        .welcome-message {
-            background-color: #e7f3ff;
-            border: 1px solid #b0d4f1;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        .welcome-message p {
-            margin: 8px 0;
-            line-height: 1.5;
-        }
-        .ip-address {
-            filter: blur(5px);
-            transition: filter 0.3s ease;
-        }
-        .ip-address:hover {
-            filter: blur(0);
-        }
-        .loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            border-top: 4px solid #4CAF50;
-            animation: spin 1s linear infinite;
-            margin-bottom: 10px;
-        }
-        /* 错误信息样式 */
-        .error-message {
-            color: #ff6565;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .error-icon {
-            font-size: 6vw; /* 设置为视口单位大小 */
-            margin-bottom: 10px;
-        }
-        #error-message {
-            font-size: 4vw; /* 错误信息字体 */
-            margin-bottom: 15px;
-        }
-        #retry-button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 3vw;
-            cursor: pointer;
-        }
-        #retry-button:hover {
-            background-color: #388E3C;
-        }
-        .github-link {
-            font-size: 1.2rem;
-            color: #333;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .github-link img {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-        }
-        .github-link:hover {
-            color: #000;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+    padding: 5px; /* 减少内边距以适应小屏幕 */
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+/* 主内容块 */
+.welcome-header {
+    font-size: 5vw; /* 响应式字体大小 */
+    font-weight: bold;
+    color: #ff4c4c;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    text-align: center; /* 文字居中 */
+}
+
+
+/* 欢迎标题样式 */
+.welcome-header {
+    font-size: 5vw; /* 响应式字体大小 */
+    font-weight: bold;
+    color: #ff4c4c;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* 简介部分 */
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 水平居中每个项 */
+    justify-content: center; /* 垂直居中 */
+    width: 100%;
+    text-align: center; /* 将文本居中 */
+}
+.intro .item {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 水平居中图标和文本 */
+    margin-bottom: 6px;
+    font-size: 4vw; /* 设置响应式字体大小 */
+}
+
+.intro .icon {
+    margin-right: 8px;
+    font-size: 4vw; /* 图标大小也使用视口单位 */
+}
+
+
+.intro .highlight {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.intro a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.intro a:hover {
+    text-decoration: underline;
+}
+
+/* 欢迎信息部分 */
+.welcome-message {
+    background-color: #e7f3ff;
+    border: 1px solid #b0d4f1;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 3.8vw; /* 适应不同视口的字体大小 */
+}
+
+.welcome-message p {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+/* IP地址样式 */
+.ip-address {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+.ip-address:hover {
+    filter: blur(0);
+}
+
+/* 加载旋转动画 */
+.loading-spinner {
+    width: 8vw;
+    height: 8vw;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid #4CAF50;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 错误信息样式 */
+/* 错误信息样式 */
+.error-message {
+    color: #ff6565;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-icon {
+    font-size: 6vw; /* 设置为视口单位大小 */
+    margin-bottom: 10px;
+}
+
+#error-message {
+    font-size: 4vw; /* 错误信息字体 */
+    margin-bottom: 15px;
+}
+#retry-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 3vw;
+    cursor: pointer;
+}
+
+#retry-button:hover {
+    background-color: #388E3C;
+}
+
+/* GitHub 链接样式 */
+.github-link {
+    font-size: 4vw; /* 响应式字体大小 */
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.github-link img {
+    width: 5vw;
+    height: 5vw;
+    margin-right: 5px;
+}
+
+.github-link:hover {
+    color: #000;
+}
+
+/* 适用于超小屏幕的媒体查询 */
+@media (max-width: 400px) {
+    #welcome-info {
+        font-size: 4.5vw;
+        padding: 8px;
+    }
+    .welcome-header {
+        font-size: 5.5vw;
+    }
+    .intro .item {
+        font-size: 6vw;
+    }
+    .welcome-message {
+        font-size: 6vw;
+    }
+
+}
+
+
+
     </style>
 </head>
 <body>
     <div id="main-container">
         <div id="welcome-info">
             <div class="welcome-header">
-                <span>📢</span> 欢迎来访者！
+                <h1>📢</h1> 欢迎来访者！
             </div>
-            <div class="intro">
-                <div class="item"><span class="icon">👋</span>Hi，我是 <span class="highlight" id="blogger-name"></span>，欢迎你！</div>
-                <div class="item"><span class="icon">❓</span>如有问题欢迎评论区交流！</div>
-                <div class="item"><span class="icon">😡</span>页面异常？尝试 <strong>Ctrl + F5</strong></div>
-                <div class="item"><span class="icon">📩</span>如需联系我：<a href="#" id="contact-email">发送邮件</a> 🚀</div>
+            <div class="intro" >
+                <div class="item"><h1 class="icon">👋</h1>Hi，我是 <span class="highlight" id="blogger-name"></span>，欢迎你！</div>
+                <div class="item"><h1 class="icon">❓</h1>如有问题欢迎评论区交流！</div>
+                <div class="item"><h1 class="icon">😡</h1>页面异常？尝试 <strong>Ctrl + F5</strong></div>
+                <div class="item"><h1 class="icon">📩</h1>如需联系我：<a href="#" id="contact-email">发送邮件</a> 🚀</div>
             </div>
+
             <div class="loading-spinner" id="loading-spinner"></div>
 
             <!-- 欢迎信息块 -->
@@ -187,7 +243,7 @@
         </div>
 
         <!-- GitHub 链接，居中放置在内容下方 -->
-        <a href="https://github.com/BDTA-zky" target="_blank" class="github-link" id="github-link">
+        <a href="https://github.com/BDTA-zky/GeoWelcome" target="_blank" class="github-link" id="github-link">
             <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo">
             GitHub
         </a>
@@ -198,9 +254,9 @@
         const CONFIG = {
             BLOGGER_NAME: 'BUZZ', // 博主名字
             EMAIL: 'mailto:2793217027@qq.com', // 博主的联系邮箱链接
-            GITHUB_URL: 'https://github.com/BDTA-zky', // 博主的 GitHub 链接
+            GITHUB_URL: 'https://github.com/BDTA-zky/GeoWelcome', // 博主的 GitHub 链接
             API_KEY: '4xR95RXijydgvLwXDmINz8ebaq', // API 密钥，请求 IP 信息用
-            BLOG_LOCATION: { lng: 113.506990, lat: 34.704587 }, // 博主的位置经纬度
+            BLOG_LOCATION: { lng: 113.509, lat: 34.708 }, // 博主的位置经纬度
             CACHE_DURATION: 1000 * 60 * 60, // 缓存时间（默认1小时）
             HOME_PAGE_ONLY: true, // 是否只在首页显示
         };
@@ -264,7 +320,6 @@
                     <button id="retry-button">重试</button>
                 </div>
             `;
-
             // 给重试按钮绑定点击事件
             document.getElementById('retry-button').addEventListener('click', () => {
                 document.getElementById('loading-spinner').style.display = 'block';
@@ -353,13 +408,8 @@
 
         const getGreeting = (country, province, city) => {
             const countryGreeting = greetings[country] || greetings["其他"];
-            if (typeof countryGreeting === 'string') {
-                return countryGreeting;
-            }
+            if (typeof countryGreeting === 'string') return countryGreeting;
             const provinceGreeting = countryGreeting[province] || countryGreeting["其他"];
-            if (typeof provinceGreeting === 'string') {
-                return provinceGreeting;
-            }
             return provinceGreeting[city] || provinceGreeting["其他"] || countryGreeting["其他"];
         };
 
