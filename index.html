@@ -61,29 +61,35 @@
             align-items: center;
         }
 
-      /* 简介部分 */
+  /* 简介部分 */
 .intro {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row; /* 水平排列 */
+    flex-wrap: wrap; /* 允许换行 */
     align-items: center;
     justify-content: center;
     width: 100%;
     text-align: center;
+    flex-direction: row; /* 默认水平排列 */
 }
 
 .intro .item {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin: 5px; /* 调整间距 */
+    margin: 5px 10px; /* 调整间距，增加水平间距 */
     font-size: 4.5vw; /* 初始字体大小 */
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; /* 防止 item 内部的元素换行 */
 }
-        /* 媒体查询 */
+
+
+/* 媒体查询 */
 @media (max-width: 768px) { /* 平板及以下 */
+    .intro {
+        flex-direction: column; /* 垂直排列 */
+    }
     .intro .item {
         font-size: 5.5vw; /* 较大字体 */
+        margin: 10px 0; /* 调整间距，增加垂直间距 */
     }
 }
 
