@@ -277,21 +277,22 @@
         };
 
         const showWelcome = ({ data, ip }) => {
-            document.getElementById('loading-spinner').style.display = 'none';
+    document.getElementById('loading-spinner').style.display = 'none';
 
-            if (!data) return showErrorMessage();
+    if (!data) return showErrorMessage();
 
-            const { lng, lat, country, prov, city } = data;
-            const dist = calculateDistance(lng, lat);
-            const ipDisplay = formatIpDisplay(ip);
-            const pos = formatLocation(country, prov, city);
+    const { lng, lat, country, prov, city } = data;
+    const dist = calculateDistance(lng, lat);
+    const ipDisplay = formatIpDisplay(ip);
+    const pos = formatLocation(country, prov, city);
 
-            document.getElementById('visitor-location').textContent = pos;
-            document.getElementById('visitor-distance').textContent = dist;
-            document.getElementById('visitor-ip').textContent = ipDisplay;
-            document.getElementById('greeting-message').textContent = getTimeGreeting();
-            document.getElementById('tip-message').textContent = getGreeting(country, prov, city);
-        };
+    document.getElementById('visitor-location').textContent = pos;
+    document.getElementById('visitor-distance').textContent = dist;
+    document.getElementById('visitor-ip').textContent = ipDisplay;
+    document.getElementById('greeting-message').textContent = getTimeGreeting();
+    document.getElementById('tip-message').textContent = getGreeting(country, prov, city);
+};
+
 
         const calculateDistance = (lng, lat) => {
             const R = 6371;
