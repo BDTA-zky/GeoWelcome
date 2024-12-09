@@ -276,21 +276,29 @@
             }
         };
 
-        const showWelcome = ({ data, ip }) => {
+       const showWelcome = ({ data, ip }) => {
     document.getElementById('loading-spinner').style.display = 'none';
 
     if (!data) return showErrorMessage();
 
-    const { lng, lat, country, prov, city } = data;
+    const { lng, lat, country, province, city, isp } = data;
     const dist = calculateDistance(lng, lat);
     const ipDisplay = formatIpDisplay(ip);
-    const pos = formatLocation(country, prov, city);
+    const pos = formatLocation(country, province, city);
 
     document.getElementById('visitor-location').textContent = pos;
     document.getElementById('visitor-distance').textContent = dist;
     document.getElementById('visitor-ip').textContent = ipDisplay;
     document.getElementById('greeting-message').textContent = getTimeGreeting();
-    document.getElementById('tip-message').textContent = getGreeting(country, prov, city);
+    document.getElementById('tip-message').textContent = getGreeting(country, province, city);
+};
+
+const formatLocation = (country, province, city) => {
+    if (country && country === "中国") {
+        return `${province} ${city}`;
+    } else {
+        return country || '神秘地区';
+    }
 };
 
 
@@ -306,7 +314,6 @@
         };
 
         const formatIpDisplay = (ip) => ip.includes(":")? "复杂的IPv6地址" : ip;
-        const formatLocation = (country, prov, city) => country? (country === "中国"? `${prov} ${city}` : country) : '神秘地区';
 
         const showErrorMessage = (message = '抱歉，无法获取信息') => {
             document.getElementById('loading-spinner').style.display = 'none';
