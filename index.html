@@ -23,7 +23,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: rgba(202, 138, 4, var(--tw-bg-opacity));
+            background-color: rgba(0, 0, 0, 0); /* 将背景颜色改为透明 */
         }
 
         #main-container {
@@ -40,7 +40,7 @@
         }
 
         /* 主内容块 */
-        .welcome-header {
+      .welcome-header {
             font-size: 5vw; /* 响应式字体大小 */
             font-weight: bold;
             color: #ff4c4c;
@@ -52,7 +52,7 @@
         }
 
         /* 欢迎标题样式 */
-        .welcome-header {
+      .welcome-header {
             font-size: 5vw; /* 响应式字体大小 */
             font-weight: bold;
             color: #ff4c4c;
@@ -62,7 +62,7 @@
         }
 
         /* 简介部分 */
-        .intro {
+      .intro {
             display: flex;
             flex-direction: column;
             align-items: center; /* 水平居中每个项 */
@@ -71,7 +71,7 @@
             text-align: center; /* 将文本居中 */
         }
 
-        .intro .item {
+      .intro.item {
             display: flex;
             align-items: center;
             justify-content: center; /* 水平居中图标和文本 */
@@ -79,27 +79,27 @@
             font-size: 4vw; /* 设置响应式字体大小 */
         }
 
-        .intro .icon {
+      .intro.icon {
             margin-right: 8px;
             font-size: 4vw; /* 图标大小也使用视口单位 */
         }
 
-        .intro .highlight {
+      .intro.highlight {
             color: #007bff;
             font-weight: bold;
         }
 
-        .intro a {
+      .intro a {
             color: #007bff;
             text-decoration: none;
         }
 
-        .intro a:hover {
+      .intro a:hover {
             text-decoration: underline;
         }
 
         /* 欢迎信息部分 */
-        .welcome-message {
+      .welcome-message {
             background-color: #e7f3ff;
             border: 1px solid #b0d4f1;
             padding: 15px;
@@ -110,23 +110,23 @@
             font-size: 3.8vw; /* 适应不同视口的字体大小 */
         }
 
-        .welcome-message p {
+      .welcome-message p {
             margin: 8px 0;
             line-height: 1.5;
         }
 
         /* IP地址样式 */
-        .ip-address {
+      .ip-address {
             filter: blur(5px);
             transition: filter 0.3s ease;
         }
 
-        .ip-address:hover {
+      .ip-address:hover {
             filter: blur(0);
         }
 
         /* 加载旋转动画 */
-        .loading-spinner {
+      .loading-spinner {
             width: 8vw;
             height: 8vw;
             border: 4px solid rgba(0, 0, 0, 0.1);
@@ -142,7 +142,7 @@
         }
 
         /* 错误信息样式 */
-        .error-message {
+      .error-message {
             color: #ff6565;
             display: flex;
             flex-direction: column;
@@ -150,7 +150,7 @@
             align-items: center;
         }
 
-        .error-icon {
+      .error-icon {
             font-size: 6vw; /* 设置为视口单位大小 */
             margin-bottom: 10px;
         }
@@ -175,7 +175,7 @@
         }
 
         /* GitHub 链接样式 */
-        .github-link {
+      .github-link {
             font-size: 4vw; /* 响应式字体大小 */
             color: #333;
             text-decoration: none;
@@ -185,13 +185,13 @@
             margin-top: 20px;
         }
 
-        .github-link img {
+      .github-link img {
             width: 5vw;
             height: 5vw;
             margin-right: 5px;
         }
 
-        .github-link:hover {
+      .github-link:hover {
             color: #000;
         }
 
@@ -201,13 +201,13 @@
                 font-size: 4.5vw;
                 padding: 8px;
             }
-            .welcome-header {
+          .welcome-header {
                 font-size: 5.5vw;
             }
-            .intro .item {
+          .intro.item {
                 font-size: 6vw;
             }
-            .welcome-message {
+          .welcome-message {
                 font-size: 6vw;
             }
         }
@@ -304,8 +304,8 @@
             return Math.round(R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
         };
 
-        const formatIpDisplay = (ip) => ip.includes(":") ? "复杂的IPv6地址" : ip;
-        const formatLocation = (country, prov, city) => country ? (country === "中国" ? `${prov} ${city}` : country) : '神秘地区';
+        const formatIpDisplay = (ip) => ip.includes(":")? "复杂的IPv6地址" : ip;
+        const formatLocation = (country, prov, city) => country? (country === "中国"? `${prov} ${city}` : country) : '神秘地区';
 
         const showErrorMessage = (message = '抱歉，无法获取信息') => {
             document.getElementById('loading-spinner').style.display = 'none';
