@@ -71,14 +71,16 @@
             text-align: center; /* 将文本居中 */
         }
 
-      .intro.item {
-            display: flex;
+      .intro .item {
+            display: inline-flex; /* 或 display: flex; */
             align-items: center;
-            justify-content: center; /* 水平居中图标和文本 */
+            justify-content: center;
             margin-bottom: 6px;
-            font-size: 4vw; /* 设置响应式字体大小 */
-            flex-wrap: nowrap; 
+            font-size: 4vw;
+            flex-wrap: nowrap;
+            margin-right: 10px; /* 可选：添加右边距以分隔项目 */
         }
+
 
       .intro.icon {
             margin-right: 8px;
