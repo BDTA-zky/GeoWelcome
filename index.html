@@ -336,14 +336,15 @@ const formatLocation = (country, province, city) => {
             });
         };
 
-      const getTimeGreeting = () => {
-    const hour = new Date().getHours();
-    if (hour < 11) return "早上好🌤️ ，一日之计在于晨";
-    if (hour < 13) return "中午好☀️ ，记得午休喔~";
-    if (hour < 17) return "下午好🕞 ，饮茶先啦！";
-    if (hour < 19) return "即将下班🚶‍♂️，记得按时吃饭~";
-    return "晚上好🌙 ，夜生活嗨起来！";
-};
+  
+    const getTimeGreeting = () => {
+        const hour = new Date().getHours();
+        if (hour < 11) return "早上好🌤️ ，一日之计在于晨";
+        if (hour < 13) return "中午好☀️ ，记得午休喔~";
+        if (hour < 17) return "下午好🕞 ，饮茶先啦！";
+        if (hour < 19) return "即将下班🚶‍♂️，记得按时吃饭~";
+        return "晚上好🌙 ，夜生活嗨起来！";
+    };
 
     const greetings = {
         "中国": {
@@ -432,7 +433,6 @@ const formatLocation = (country, province, city) => {
     };
 
     document.addEventListener('DOMContentLoaded', fetchIpInfo);
-
-
+</script>
 </body>
 </html>
