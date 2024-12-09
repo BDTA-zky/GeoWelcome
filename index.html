@@ -417,11 +417,22 @@ const formatLocation = (country, province, city) => {
     };
 
     const getGreeting = (country, province, city) => {
-        const countryGreeting = greetings[country] || greetings["其他"];
-        if (typeof countryGreeting === 'string') return countryGreeting;
-        const provinceGreeting = countryGreeting[province] || countryGreeting["其他"];
-        return provinceGreeting[city] || provinceGreeting["其他"] || countryGreeting["其他"];
-    };
+    const countryGreeting = greetings[country] || greetings["其他"];
+    if (typeof countryGreeting === 'string') return countryGreeting;
+
+    const provinceGreeting = countryGreeting[province];
+    if (provinceGreeting) {
+        if (typeof provinceGreeting === 'string') return provinceGreeting; // 直接返回省份问候
+
+        const cityGreeting = provinceGreeting[city];
+        if (cityGreeting) return cityGreeting; // 优先返回城市问候
+
+        return provinceGreeting["其他"] || countryGreeting["其他"]; // 省份其他或国家其他
+    }
+
+    return countryGreeting["其他"]; // 国家其他
+};
+
 
     const fetchIpInfo = async () => {
         try {
