@@ -79,25 +79,9 @@
     margin: 5px 10px; /* 调整间距，增加水平间距 */
     font-size: 4.5vw; /* 初始字体大小 */
     flex-wrap: nowrap; /* 防止 item 内部的元素换行 */
+    min-width: 200px; /* 根据实际情况调整 */
 }
 
-
-/* 媒体查询 */
-@media (max-width: 768px) { /* 平板及以下 */
-    .intro {
-        flex-direction: column; /* 垂直排列 */
-    }
-    .intro .item {
-        font-size: 5.5vw; /* 较大字体 */
-        margin: 10px 0; /* 调整间距，增加垂直间距 */
-    }
-}
-
-@media (max-width: 400px) { /* 手机 */
-    .intro .item {
-        font-size: 6.5vw; /* 更大字体 */
-    }
-}
 
 
       .intro.icon {
