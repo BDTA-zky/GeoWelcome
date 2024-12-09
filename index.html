@@ -61,25 +61,37 @@
             align-items: center;
         }
 
-        /* 简介部分 */
-      .intro {
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* 水平居中每个项 */
-            justify-content: center; /* 垂直居中 */
-            width: 100%;
-            text-align: center; /* 将文本居中 */
-        }
+      /* 简介部分 */
+.intro {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; /* 水平排列 */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
 
-      .intro .item {
-            display: inline-flex; /* 或 display: flex; */
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 6px;
-            font-size: 4vw;
-            flex-wrap: nowrap;
-            margin-right: 10px; /* 可选：添加右边距以分隔项目 */
-        }
+.intro .item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px; /* 调整间距 */
+    font-size: 4.5vw; /* 初始字体大小 */
+    flex-wrap: nowrap;
+}
+        /* 媒体查询 */
+@media (max-width: 768px) { /* 平板及以下 */
+    .intro .item {
+        font-size: 5.5vw; /* 较大字体 */
+    }
+}
+
+@media (max-width: 400px) { /* 手机 */
+    .intro .item {
+        font-size: 6.5vw; /* 更大字体 */
+    }
+}
 
 
       .intro.icon {
