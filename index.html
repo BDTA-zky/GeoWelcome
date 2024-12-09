@@ -195,12 +195,6 @@
             color: #000;
         }
 
-      .intro.item span {
-        display: flex;
-        align-items: center;
-        }
-
-
         /* 适用于超小屏幕的媒体查询 */
         @media (max-width: 400px) {
             #welcome-info {
@@ -221,29 +215,28 @@
 </head>
 <body>
     <div id="main-container">
-       <div class="intro">
-    <div class="item">
-        <span>
-            <h1 class="icon">👋</h1>Hi，我是 <span class="highlight" id="blogger-name"></span>，欢迎你！
-        </span>
-    </div>
-    <div class="item">
-        <span>
-            <h1 class="icon">❓</h1>如有问题欢迎评论区交流！
-        </span>
-    </div>
-    <div class="item">
-        <span>
-            <h1 class="icon">😡</h1>页面异常？尝试 <strong>Ctrl + F5</strong>
-        </span>
-    </div>
-    <div class="item">
-        <span>
-            <h1 class="icon">📩</h1>如需联系我：<a href="#" id="contact-email">发送邮件</a> 🚀
-        </span>
-    </div>
-</div>
+        <div id="welcome-info">
+            <div class="welcome-header">
+                <h1>📢</h1> 欢迎来访者！
+            </div>
+            <div class="intro">
+                <div class="item"><h1 class="icon">👋</h1>Hi，我是 <span class="highlight" id="blogger-name"></span>，欢迎你！</div>
+                <div class="item"><h1 class="icon">❓</h1>如有问题欢迎评论区交流！</div>
+                <div class="item"><h1 class="icon">😡</h1>页面异常？尝试 <strong>Ctrl + F5</strong></div>
+                <div class="item"><h1 class="icon">📩</h1>如需联系我：<a href="#" id="contact-email">发送邮件</a> 🚀</div>
+            </div>
 
+            <div class="loading-spinner" id="loading-spinner"></div>
+
+            <!-- 欢迎信息块 -->
+            <div class="welcome-message">
+                <p>欢迎来自 <b id="visitor-location"></b> 的小友💖</p>
+                <p>你当前距博主约 <b id="visitor-distance"></b> 公里！</p>
+                <p>你的IP地址：<b class="ip-address" id="visitor-ip"></b></p>
+                <p id="greeting-message"></p>
+                <p>Tip：<b id="tip-message"></b></p>
+            </div>
+        </div>
 
         <!-- GitHub 链接，居中放置在内容下方 -->
         <a href="https://github.com/BDTA-zky/GeoWelcome" target="_blank" class="github-link" id="github-link">
